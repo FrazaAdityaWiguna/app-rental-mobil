@@ -2,65 +2,65 @@
 <html lang="en">
 
 <head>
+  <!-- Required meta tags -->
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
 
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-  <meta name="description" content="">
-  <meta name="author" content="">
+  <!-- Bootstrap CSS -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+    integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous" />
+
+  <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css"
+    integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous" />
+
+  <link rel="preconnect" href="https://fonts.gstatic.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Mukta:wght@400;600&display=swap" rel="stylesheet" />
+
+  <link rel="stylesheet" href="<?php echo base_url('assets/assets_shop/') ?>style/main.css" />
 
   <title>Rental Mobil</title>
-
-  <!-- Bootstrap core CSS -->
-  <link href="<?php echo base_url('assets/assets_shop/')?>vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
-
-  <!-- Custom styles for this template -->
-  <link href="<?php echo base_url('assets/assets_shop/')?>css/shop-homepage.css" rel="stylesheet">
-
 </head>
 
 <body>
+  <div class="preloader">
+    <div class="loading">
+      <img src="<?php echo base_url('assets/assets_shop/') ?>image/preloader.gif" alt="Preloader" />
+    </div>
+  </div>
 
-  <!-- Navigation -->
-  <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
+  <nav class="navbar navbar-expand-lg navbar-dark bg-dark pt-3 pb-3 sticky-top">
     <div class="container">
-      <a class="navbar-brand" href="#">Rental Mobil</a>
-      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive"
-        aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+      <a class="navbar-brand font-weight-bold" href="<?php echo base_url('customer/dashboard') ?>">RENTAL MOBIL</a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
+        aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
-      <div class="collapse navbar-collapse" id="navbarResponsive">
+      <div class="collapse navbar-collapse" id="navbarNav">
         <ul class="navbar-nav ml-auto">
           <li class="nav-item active">
-            <a class="nav-link" href="#">Home
-              <span class="sr-only">(current)</span>
-            </a>
+            <a class="nav-link mr-3" href="<?php echo base_url('customer/dashboard') ?>">Home <span
+                class="sr-only">(current)</span></a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="#">About</a>
+            <a class="nav-link mr-3" href="#">Mobil</a>
+          </li>
+
+          <?php if($this->session->userdata('nama')) { ?>
+          <li class="nav-item">
+            <a class="nav-link mr-3" href="<?php echo base_url('auth/logout') ?>"> <span class="text-warning">Welcome
+                <?php echo $this->session->userdata('nama') ?></span>
+              | Logout</a>
+          </li>
+
+          <?php } else { ?>
+          <li class="nav-item">
+            <a class="nav-link mr-3" href="<?php echo base_url('auth/login') ?>">Login</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="#">Services</a>
+            <a class="nav-link disabled" href="<?php echo base_url('register') ?>">Register</a>
           </li>
-          <li class="nav-item">
-            <a class="nav-link" href="<?php echo base_url('register') ?>">Register</a>
-          </li>
+          <?php } ?>
 
-          <li class="nav-item row ml-2">
-            <?php if($this->session->userdata('nama')) { ?>
-            <a class="nav-link" href="<?php echo base_url('auth/logout') ?>">Welcome,
-              <?php echo $this->session->userdata('nama') ?>
-              <span class="btn btn-sm btn-warning">Logout</span>
-            </a>
-
-            <a class="nav-link" href="<?php echo base_url('auth/ganti_password') ?>">
-              <span class="btn btn-sm btn-primary">Ganti Password</span>
-            </a>
-
-            <?php } else { ?>
-            <a class="nav-link" href="<?php echo base_url('auth/login') ?>"><span
-                class="btn btn-sm btn-success">Login</span></a>
-            <?php } ?>
-          </li>
         </ul>
       </div>
     </div>

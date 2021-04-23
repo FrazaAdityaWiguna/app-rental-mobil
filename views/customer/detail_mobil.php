@@ -1,5 +1,5 @@
 <div class="container mt-5 mb-5" style="min-height: 400px">
-  <div class="card">
+  <div class="card" style="margin-top: 100px">
     <div class="card-body">
       <?php foreach($detail as $dt) : ?>
       <div class="row">
