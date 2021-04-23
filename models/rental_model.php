@@ -53,6 +53,11 @@ class rental_model extends CI_Model{
       return FALSE;
     }
   }
+
+  public function update_password($where, $data, $table){
+    $this->db->where($where);
+    $this->db->update($table, $data);
+  }
 }
 
 ?>

@@ -45,18 +45,21 @@
             <a class="nav-link" href="<?php echo base_url('register') ?>">Register</a>
           </li>
 
-          <li class="nav-item">
+          <li class="nav-item row ml-2">
             <?php if($this->session->userdata('nama')) { ?>
             <a class="nav-link" href="<?php echo base_url('auth/logout') ?>">Welcome,
               <?php echo $this->session->userdata('nama') ?>
               <span class="btn btn-sm btn-warning">Logout</span>
             </a>
+
+            <a class="nav-link" href="<?php echo base_url('auth/ganti_password') ?>">
+              <span class="btn btn-sm btn-primary">Ganti Password</span>
+            </a>
+
             <?php } else { ?>
             <a class="nav-link" href="<?php echo base_url('auth/login') ?>"><span
                 class="btn btn-sm btn-success">Login</span></a>
-
             <?php } ?>
-
           </li>
         </ul>
       </div>
