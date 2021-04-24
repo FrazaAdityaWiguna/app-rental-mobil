@@ -43,6 +43,74 @@
                 <input type="text" name="warna" class="form-control" value="<?php echo $mb->warna ?>">
                 <?php echo form_error('warna', '<div class="text-small text-danger">','</div>') ?>
               </div>
+
+              <div class="form-group">
+                <label>Status</label>
+                <select name="status" class="form-control">
+                  <option <?php if($mb->status == '1'){echo "selected='selected'";}echo $mb->status ?> value="1">
+                    Tersedia
+                  </option>
+                  <option <?php if($mb->status == '0'){echo "selected='selected'";}echo $mb->status ?> value="0">Tidak
+                    Tersedia
+                  </option>
+                </select>
+                <?php echo form_error('status', '<div class="text-small text-danger">','</div>') ?>
+              </div>
+
+              <div class="form-group">
+                <label>AC</label>
+                <select name="ac" class="form-control">
+                  <option <?php if($mb->ac == '1'){echo "selected='selected'";}echo $mb->ac ?> value="1">Tersedia
+                  </option>
+                  <option <?php if($mb->ac == '0'){echo "selected='selected'";}echo $mb->ac ?> value="0">Tidak
+                    Tersedia
+                  </option>
+                </select>
+                <?php echo form_error('status', '<div class="text-small text-danger">','</div>') ?>
+              </div>
+
+              <div class="form-group">
+                <label>supir</label>
+                <select name="supir" class="form-control">
+                  <option <?php if($mb->supir == '1'){echo "selected='selected'";}echo $mb->supir ?> value="1">Tersedia
+                  </option>
+                  <option <?php if($mb->supir == '0'){echo "selected='selected'";}echo $mb->supir ?> value="0">Tidak
+                    Tersedia
+                  </option>
+                </select>
+                <?php echo form_error('supir', '<div class="text-small text-danger">','</div>') ?>
+              </div>
+
+              <div class="form-group">
+                <label>Mp3 Player</label>
+                <select name="mp3_player" class="form-control">
+                  <option <?php if($mb->mp3_player == '1'){echo "selected='selected'";}echo $mb->mp3_player ?>
+                    value="1">
+                    Tersedia
+                  </option>
+                  <option <?php if($mb->mp3_player == '0'){echo "selected='selected'";}echo $mb->mp3_player ?>
+                    value="0">
+                    Tidak
+                    Tersedia
+                  </option>
+                </select>
+                <?php echo form_error('mp3_player', '<div class="text-small text-danger">','</div>') ?>
+              </div>
+
+              <div class="form-group">
+                <label>Central Lock</label>
+                <select name="central_lock" class="form-control">
+                  <option <?php if($mb->central_lock == '1'){echo "selected='selected'";}echo $mb->central_lock ?>
+                    value="1">Tersedia
+                  </option>
+                  <option <?php if($mb->central_lock == '0'){echo "selected='selected'";}echo $mb->central_lock ?>
+                    value="0">Tidak
+                    Tersedia
+                  </option>
+                </select>
+                <?php echo form_error('central_lock', '<div class="text-small text-danger">','</div>') ?>
+              </div>
+
             </div>
 
             <div class="col-md-6">
@@ -53,15 +121,15 @@
               </div>
 
               <div class="form-group">
-                <label>Status</label>
-                <select name="status" class="form-control">
-                  <option <?php if($mb->status == '1'){echo 'selected="selected';}echo $mb->status ?> value="1">Tersedia
-                  </option>
-                  <option <?php if($mb->status == '0'){echo 'selected="selected';}echo $mb->status ?> value="0">Tidak
-                    Tersedia
-                  </option>
-                </select>
-                <?php echo form_error('status', '<div class="text-small text-danger">','</div>') ?>
+                <label>Harga</label>
+                <input type="number" name="harga" class="form-control" value="<?php echo $mb->harga ?>">
+                <?php echo form_error('harga', '<div class="text-small text-danger">','</div>') ?>
+              </div>
+
+              <div class="form-group">
+                <label>Denda</label>
+                <input type="text" name="denda" class="form-control" value="<?php echo $mb->denda ?>">
+                <?php echo form_error('denda', '<div class="text-small text-danger">','</div>') ?>
               </div>
 
               <div class="form-group">

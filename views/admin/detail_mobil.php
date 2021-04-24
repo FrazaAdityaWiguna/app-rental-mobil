@@ -10,7 +10,69 @@
     <div class="card-body">
       <div class="row">
         <div class="col-md-5">
-          <img src="<?php echo base_url('assets/upload/'). $dt->gambar ?>" alt="">
+          <img src="<?php echo base_url('assets/upload/'). $dt->gambar ?>" alt="mobil" width="300px">
+          <table class="table">
+            <tr>
+              <td>Status</td>
+              <td>
+                <?php 
+                if($dt->status == '0'){
+                  echo '<span class="badge badge-danger">Tidak Tersedia</span>';
+                }else{
+                  echo '<span class="badge badge-primary">Tersedia</span>';
+                }
+              ?>
+              </td>
+            </tr>
+            <tr>
+              <td>AC</td>
+              <td>
+                <?php 
+                if($dt->ac == '0'){
+                  echo '<span class="badge badge-danger">Tidak Tersedia</span>';
+                }else{
+                  echo '<span class="badge badge-primary">Tersedia</span>';
+                }
+              ?>
+              </td>
+            </tr>
+            <tr>
+              <td>Supir</td>
+              <td>
+                <?php 
+                if($dt->supir == '0'){
+                  echo '<span class="badge badge-danger">Tidak Tersedia</span>';
+                }else{
+                  echo '<span class="badge badge-primary">Tersedia</span>';
+                }
+              ?>
+              </td>
+            </tr>
+            <tr>
+              <td>MP3 Player</td>
+              <td>
+                <?php 
+                if($dt->mp3_player == '0'){
+                  echo '<span class="badge badge-danger">Tidak Tersedia</span>';
+                }else{
+                  echo '<span class="badge badge-primary">Tersedia</span>';
+                }
+              ?>
+              </td>
+            </tr>
+            <tr>
+              <td>Central Lock</td>
+              <td>
+                <?php 
+                if($dt->central_lock == '0'){
+                  echo '<span class="badge badge-danger">Tidak Tersedia</span>';
+                }else{
+                  echo '<span class="badge badge-primary">Tersedia</span>';
+                }
+              ?>
+              </td>
+            </tr>
+          </table>
         </div>
         <div class="col-md-7">
           <table class="table">
@@ -47,16 +109,12 @@
               <td><?php echo $dt->tahun ?></td>
             </tr>
             <tr>
-              <td>Status</td>
-              <td>
-                <?php 
-                if($dt->status == '0'){
-                  echo '<span class="badge badge-danger">Tidak Tersedia</span>';
-                }else{
-                  echo '<span class="badge badge-primary">Tersedia</span>';
-                }
-              ?>
-              </td>
+              <td>Harga</td>
+              <td>Rp. <?php echo number_format($dt->harga,0,',','.') ?></td>
+            </tr>
+            <tr>
+              <td>Denda</td>
+              <td>Rp. <?php echo number_format($dt->denda,0,',','.') ?></td>
             </tr>
           </table>
 
