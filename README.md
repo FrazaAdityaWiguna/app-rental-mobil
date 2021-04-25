@@ -16,7 +16,7 @@ config->autoload.php : database - 'rental_mobil'
 
 Template yang digunakan:
 stisla: https://getstisla.com/
-shop homepage: https://startbootstrap.com/template/shop-homepage
+Update Template Customer: Buatan Sendiri
 
 semua asset disimpan di:
 application->assets
