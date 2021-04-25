@@ -43,7 +43,7 @@
                 class="sr-only">(current)</span></a>
           </li>
           <li class="nav-item">
-            <a class="nav-link mr-3" href="#">Mobil</a>
+            <a class="nav-link mr-3" href="<?php echo base_url('customer/data_mobil') ?>">Mobil</a>
           </li>
 
           <?php if($this->session->userdata('nama')) { ?>

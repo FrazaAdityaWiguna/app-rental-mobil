@@ -37,6 +37,7 @@
             <tr>
               <td></td>
               <td>
+                <a class="btn btn-primary mr-4" href="<?php echo base_url('customer/data_mobil') ?>">Kembali</a>
                 <?php 
                   if($dt->status == "0") {
                     echo "<span class='btn btn-danger' disable>Telah di Rental</span>";

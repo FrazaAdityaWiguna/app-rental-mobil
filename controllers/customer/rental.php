@@ -2,6 +2,7 @@
 
 class rental extends CI_Controller
 {
+
   public function tambah_rental($id)
   {
     $data['detail'] = $this->rental_model->ambil_id_mobil($id);
@@ -17,6 +18,8 @@ class rental extends CI_Controller
 
     if($this->form_validation->run() == FALSE){
       $this->tambah_rental($id);
+    }else if($this->session->userdata('id_customer') == 0){
+      redirect('auth/login');
     }else{
     $id_customer                       = $this->session->userdata('id_customer');
     $id_mobil                          = $this->input->post('id_mobil');

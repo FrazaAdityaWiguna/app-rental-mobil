@@ -9,11 +9,6 @@ class Dashboard extends CI_Controller{
     $this->load->view('customer/dashboard', $data);
     $this->load->view('templates_customer/footer');
   }
-
-  public function data_mobil()
-  {
-    
-  }
 }
 
 ?>
