@@ -1,14 +1,20 @@
 <div class="container">
   <div class="row">
     <div class="col-md-8">
-      <div class="card-header alert alert-success" style="margin-top: 50px;">
-        Invoice Pembayaran Anda
-      </div>
+      <div class="card" style="margin-bottom: 150px;margin-top: 50px;">
+        <div class="card-header alert alert-success">
+          Invoice Pembayaran Anda
+        </div>
 
-      <div class="card">
         <div class="card-body">
           <table class="table">
             <?php foreach($transaksi as $tr) : ?>
+            <tr>
+              <th>Nama</th>
+              <td>:</td>
+              <td><?php echo $tr->nama ?></td>
+            </tr>
+
             <tr>
               <th>Merk Mobil</th>
               <td>:</td>
@@ -62,7 +68,8 @@
             <tr>
               <td></td>
               <td></td>
-              <td><a href="" class="btn btn-sm btn-secondary">Print Invoice</a></td>
+              <td><a href="<?php echo base_url('customer/transaksi/cetak_invoice/'). $tr->id_rental ?>"
+                  class="btn btn-sm btn-secondary">Print Invoice</a></td>
             </tr>
 
             <?php endforeach; ?>
@@ -70,6 +77,7 @@
         </div>
       </div>
     </div>
+
     <div class="col-md-4">
       <div class="card" style="margin-top: 50px;">
         <div class="card-header alert alert-primary">
@@ -81,11 +89,13 @@
 
 
           <table class="table table-striped">
+            <?php foreach($bank as $bk) : ?>
             <tr>
-              <th>Bank</th>
+              <th><?php echo $bk->nama_bank ?></th>
               <td>:</td>
-              <td>112233454679</td>
+              <td><?php echo $bk->nomor_rekening ?></td>
             </tr>
+            <?php endforeach; ?>
           </table>
 
           <?php if(empty($tr->bukti_pembayaran)) { ?>

@@ -13,6 +13,8 @@ class transaksi extends CI_Controller{
   public function pembayaran($id)
   {
     $data['transaksi'] = $this->db->query("SELECT * FROM transaksi tr, mobil mb, customer cs WHERE tr.id_mobil = mb.id_mobil AND tr.id_customer = cs.id_customer AND tr.id_rental='$id' ORDER BY id_rental DESC")->result();
+    $data['bank'] = $this->db->query("SELECT * FROM bank bk")->result();
+
     $this->load->view('templates_customer/header');
     $this->load->view('customer/pembayaran', $data);
     $this->load->view('templates_customer/footer');
@@ -53,6 +55,13 @@ class transaksi extends CI_Controller{
       </div>
       ');
       redirect('customer/transaksi');
+  }
+
+  public function cetak_invoice($id)
+  {
+    $data['transaksi'] = $this->db->query("SELECT * FROM transaksi tr, mobil mb, customer cs WHERE tr.id_mobil = mb.id_mobil AND tr.id_customer = cs.id_customer AND tr.id_rental='$id'")->result();
+    $data['bank'] = $this->db->query("SELECT * FROM bank bk")->result();
+    $this->load->view('customer/cetak_invoice', $data);
   }
 }
 

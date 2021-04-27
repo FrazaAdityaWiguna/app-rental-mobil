@@ -189,15 +189,15 @@ class Data_mobil extends CI_Controller{
     $where = array('id_mobil' => $id);
 
     $this->rental_model->delete_data($where, 'mobil');
-      $this->session->set_flashdata('pesan', '
-      <div class="alert alert-danger alert-dismissible fade show" role="alert">
-        Data Mobil Berhasil dihapus!
-        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-          <span aria-hidden="true">&times;</span>
-        </button>
-      </div>
-      ');
-      redirect('admin/data_mobil');
+    $this->session->set_flashdata('pesan', '
+    <div class="alert alert-danger alert-dismissible fade show" role="alert">
+      Data Mobil Berhasil dihapus!
+      <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+        <span aria-hidden="true">&times;</span>
+      </button>
+    </div>
+    ');
+    redirect('admin/data_mobil');
   }
 }
 

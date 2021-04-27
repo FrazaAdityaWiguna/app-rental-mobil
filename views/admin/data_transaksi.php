@@ -4,6 +4,42 @@
       <h1>Data Transaksi</h1>
     </div>
 
+    <a href="<?php echo base_url('admin/data_bank')?>" class="btn btn-primary mb-3">Tambah Bank</a>
+
+    <div class="card">
+      <div class="card-body">
+        <table class="table table-responsive table-bordered table-striped">
+
+          <tr>
+            <th>No</th>
+            <th>Bank</th>
+            <th>Nomor Rekening</th>
+            <th>Aksi</th>
+          </tr>
+
+          <?php 
+          $no=1;
+          foreach($bank as $bk) :
+          ?>
+          <tr>
+            <td><?php echo $no++; ?></td>
+            <td><?php echo $bk->nama_bank ?></td>
+            <td><?php echo $bk->nomor_rekening ?></td>
+            <td>
+              <a href="<?php echo base_url('admin/data_bank/delete_bank/') .$bk->id_bank?>"
+                class="btn btn-sm btn-danger"><i class='fas fa-trash'></i></a>
+              <a href="<?php echo base_url('admin/data_bank/update_bank/') .$bk->id_bank?>"
+                class="btn btn-sm btn-primary"><i class='fas fa-edit'></i></a>
+            </td>
+          </tr>
+          <?php endforeach; ?>
+
+        </table>
+      </div>
+    </div>
+
+    <?php echo $this->session->flashdata('pesan') ?>
+
     <div class="card">
       <div class="card-body">
         <table class="table table-responsive table-bordered table-striped">
@@ -18,6 +54,7 @@
             <th>Tgl. Dikembalikan</th>
             <th>Status Pengembalian</th>
             <th>Status Rental</th>
+            <th>Cek Pembayaran</th>
             <th>Action</th>
           </tr>
 
@@ -52,11 +89,22 @@
             ?>
             </td>
             <td>
+              <center>
+                <?php if(empty($tr->bukti_pembayaran)){ ?>
+                <button class="btn btn-sm btn-danger"><i class="fas fa-times-circle"></i></button>
+                <?php }else{ ?>
+                <a class="btn btn-sm btn-primary"
+                  href="<?php echo base_url('admin/transaksi/pembayaran/'). $tr->id_rental ?>"><i
+                    class="fas fa-check-circle"></i></a>
+                <?php } ?>
+              </center>
+            </td>
+            <td>
               <?php 
-            if($tr->status == '1'){
-              echo 'Kembali';
+            if($tr->status_pembayaran == '1'){
+              echo 'Sudah Bayar';
             }else{
-              echo 'Belum Kembali';
+              echo 'Belum Bayar';
             }
             ?>
             </td>
