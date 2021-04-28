@@ -16,7 +16,7 @@
                   <option value="">--Pilih Type Mobil--</option>
                   <?php foreach($type as $tp) : ?>
                   <option value="<?php echo $tp->kode_type ?>">
-                    <?php echo $tp->nama_type ?>
+                    <?php echo $tp->kode_type ?>
                   </option>
                   <?php endforeach; ?>
                 </select>
@@ -92,7 +92,7 @@
                 <input type="number" name="denda" class="form-control">
                 <?php echo form_error('denda', '<div class="text-small text-danger">','</div>') ?>
               </div>
-              
+
               <div class="form-group">
                 <label>Tahun</label>
                 <input type="text" name="tahun" class="form-control">

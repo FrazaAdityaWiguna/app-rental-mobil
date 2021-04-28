@@ -3,11 +3,11 @@
 
     <?php echo $this->session->flashdata('pesan') ?>
 
-    <div class="row d-flex justify-content-center">
+    <div class="row m-auto">
 
       <?php foreach($mobil as $mb) : ?>
 
-      <div class="col-lg-6 col-md-6">
+      <div class=" col-lg-6 col-md-6">
         <div class="card mb-5">
           <img class="card-img-top" src="<?php echo base_url('assets/upload/'). $mb->gambar ?>" alt="Card image cap" />
           <div class="card-body">

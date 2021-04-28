@@ -177,6 +177,7 @@ class Data_mobil extends CI_Controller{
   public function detail_mobil($id)
   {
     $data['detail'] = $this->rental_model->ambil_id_mobil($id);
+    $data['type'] = $this->db->query("SELECT * FROM type tp")->result();
 
     $this->load->view('templates_admin/header');
     $this->load->view('templates_admin/sidebar');

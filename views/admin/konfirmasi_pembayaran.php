@@ -11,6 +11,8 @@
         <form action="<?php echo base_url('admin/transaksi/cek_pembayaran') ?>" method="POST">
 
           <?php foreach($pembayaran as $pmb) : ?>
+          <input type="hidden" name="status" value="1">
+          <input type="hidden" name="id_mobil" value="<?php echo $pmb->id_mobil ?>">
           <a class="btn btn-sm btn-success"
             href="<?php echo base_url('admin/transaksi/download_pembayaran/').$pmb->id_rental ?>"><i
               class="fas fa-download"></i> Download Bukti Pembayaran</a>

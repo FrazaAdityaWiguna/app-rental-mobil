@@ -1,4 +1,4 @@
-<footer class="text-center bg-dark text-white fixed-bottom">Copyright 2021 by Fraza</footer>
+<footer class="text-center bg-dark text-white">Copyright 2021 by Fraza</footer>
 <!-- Optional JavaScript -->
 <!-- jQuery first, then Popper.js, then Bootstrap JS -->
 <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"

@@ -26,6 +26,7 @@ class rental extends CI_Controller
     $tanggal_rental                    = $this->input->post('tanggal_rental');
     $tanggal_kembali                   = $this->input->post('tanggal_kembali');
     $denda                             = $this->input->post('denda');
+    $total_denda                       = $this->input->post('total_denda');
     $harga                             = $this->input->post('harga');
 
     $data = array(
@@ -34,6 +35,7 @@ class rental extends CI_Controller
       'tanggal_rental'                       => $tanggal_rental,
       'tanggal_kembali'                      => $tanggal_kembali,
       'denda'                                => $denda,
+      'total_denda'                          => $total_denda,
       'harga'                                => $harga,
       'tanggal_pengembalian'                 => '-',
       'status_rental'                        => 'Belum Selesai',

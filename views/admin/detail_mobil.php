@@ -80,14 +80,19 @@
               <td>Type Mobil</td>
               <td>
                 <?php 
-                if($dt->kode_type == 'SDN'){
-                  echo 'Sedan';
-                }else if($dt->kode_type == 'HTB'){
-                  echo 'Hatchback';
-                }else if($dt->kode_type == 'MPV'){
-                  echo 'Multi Purpose Vechile';
-                }else{
-                  echo '<span class="text-danger">Type mobil belum terdaftar</span>';
+                // if($dt->kode_type == 'SDN'){
+                //   echo 'Sedan';
+                // }else if($dt->kode_type == 'HTB'){
+                //   echo 'Hatchback';
+                // }else if($dt->kode_type == 'MPV'){
+                //   echo 'Multi Purpose Vechile';
+                // }else{
+                //   echo '<span class="text-danger">Type mobil belum terdaftar</span>';
+                // }
+                foreach($type as $tp){
+                  if($dt->kode_type == $tp->kode_type){
+                    echo $tp->nama_type;
+                  }
                 }
               ?>
               </td>

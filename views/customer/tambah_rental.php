@@ -13,6 +13,7 @@
         <div class="form-gruop mb-3">
           <label>Harga Sewa/Hari</label>
           <input type="hidden" name="id_mobil" value="<?php echo $dt->id_mobil ?>">
+          <input type="hidden" name="total_denda" value="0">
           <input type="text" class="form-control" name="harga" value="<?php echo $dt->harga ?>" readonly>
         </div>
 

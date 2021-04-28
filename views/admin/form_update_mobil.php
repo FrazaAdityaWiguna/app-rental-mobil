@@ -15,14 +15,15 @@
               <div class="form-group">
                 <label>Type</label>
                 <input type="hidden" name="id_mobil" value="<?php echo $mb->id_mobil ?>">
+
                 <select name="kode_type" class="form-control">
-                  <option value="<?php echo $mb->kode_type ?>"><?php echo $mb->kode_type ?></option>
                   <?php foreach($type as $tp) : ?>
-                  <option value="<?php echo $tp->kode_type ?>">
-                    <?php echo $tp->nama_type ?>
+                  <option value="<?php echo $mb->kode_type ?>">
+                    <?php echo $tp->kode_type ?>
                   </option>
                   <?php endforeach; ?>
                 </select>
+
                 <?php echo form_error('kode_type', '<div class="text-small text-danger">','</div>') ?>
               </div>
 
