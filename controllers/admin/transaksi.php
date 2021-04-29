@@ -7,10 +7,13 @@ class transaksi extends CI_Controller{
     $data['transaksi'] = $this->db->query("SELECT * FROM transaksi tr, mobil mb, customer cs WHERE tr.id_mobil = mb.id_mobil AND tr.id_customer = cs.id_customer")->result();
     $data['bank'] = $this->db->query("SELECT * FROM bank")->result();
 
+    if($this->session->userdata('id_customer') == 0){
+      redirect('auth/login');
+    }else{
     $this->load->view('templates_admin/header');
     $this->load->view('templates_admin/sidebar');
     $this->load->view('admin/data_transaksi', $data);
-    $this->load->view('templates_admin/footer');
+    $this->load->view('templates_admin/footer');}
   }
 
   public function pembayaran($id)
@@ -62,6 +65,7 @@ class transaksi extends CI_Controller{
   {
     $where = array('id_rental' => $id);
     $data['transaksi'] = $this->db->query("SELECT * FROM transaksi tp WHERE id_rental = '$id' ")->result();
+
     foreach($data['transaksi'] as $tp){
       $data['mobil'] = $this->db->query("SELECT * FROM mobil mb WHERE id_mobil = '$tp->id_mobil' ")->result();
     }
@@ -100,7 +104,6 @@ class transaksi extends CI_Controller{
 
     $id_mobil = array(
       'id_mobil' => $id_mobil,
-    
     );
 
     $data_mobil = array(
@@ -132,6 +135,27 @@ class transaksi extends CI_Controller{
       </button>
     </div>
     ');
+    redirect('admin/transaksi');
+  }
+
+  public function batal_transaksi($id)
+  {
+    $where = array('id_rental' => $id);
+    $data = $this->rental_model->get_where($where, 'transaksi')->row();
+
+    $id_mobil = array('id_mobil' => $data->id_mobil);
+    $data2 = array('status' => '1');
+
+    $this->rental_model->update_data('mobil', $data2, $id_mobil);
+    $this->rental_model->delete_data($where, 'transaksi');
+    $this->session->set_flashdata('pesan', '
+      <div class="alert alert-danger alert-dismissible fade show" role="alert">
+        Transaksi Telah Dibatalkan!
+        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      ');
     redirect('admin/transaksi');
   }
 }

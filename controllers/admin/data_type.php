@@ -6,6 +6,10 @@ class Data_type extends CI_Controller{
   {
     $data['type'] = $this->rental_model->get_data('type')->result();
 
+    if($this->session->userdata('id_customer') == 0){
+      redirect('auth/login');
+    }
+    
     $this->load->view('templates_admin/header');
     $this->load->view('templates_admin/sidebar');
     $this->load->view('admin/data_type', $data);

@@ -46,15 +46,15 @@ class transaksi extends CI_Controller{
     );
 
     $this->rental_model->update_data('transaksi', $data, $where);
-      $this->session->set_flashdata('pesan', '
-      <div class="alert alert-success alert-dismissible fade show" role="alert">
-        Bukti Pembayaran Anda Berhasil Di Upload!
-        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-          <span aria-hidden="true">&times;</span>
-        </button>
-      </div>
-      ');
-      redirect('customer/transaksi');
+    $this->session->set_flashdata('pesan', '
+    <div class="alert alert-success alert-dismissible fade show" role="alert">
+      Bukti Pembayaran Anda Berhasil Di Upload!
+      <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+        <span aria-hidden="true">&times;</span>
+      </button>
+    </div>
+    ');
+    redirect('customer/transaksi');
   }
 
   public function cetak_invoice($id)
@@ -62,6 +62,27 @@ class transaksi extends CI_Controller{
     $data['transaksi'] = $this->db->query("SELECT * FROM transaksi tr, mobil mb, customer cs WHERE tr.id_mobil = mb.id_mobil AND tr.id_customer = cs.id_customer AND tr.id_rental='$id'")->result();
     $data['bank'] = $this->db->query("SELECT * FROM bank bk")->result();
     $this->load->view('customer/cetak_invoice', $data);
+  }
+
+  public function batal_transaksi($id)
+  {
+    $where = array('id_rental' => $id);
+    $data = $this->rental_model->get_where($where, 'transaksi')->row();
+
+    $id_mobil = array('id_mobil' => $data->id_mobil);
+    $data2 = array('status' => '1');
+
+    $this->rental_model->update_data('mobil', $data2, $id_mobil);
+    $this->rental_model->delete_data($where, 'transaksi');
+    $this->session->set_flashdata('pesan', '
+      <div class="alert alert-danger alert-dismissible fade show" role="alert">
+        Transaksi Telah Dibatalkan!
+        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      ');
+    redirect('customer/transaksi');
   }
 }
 

@@ -4,6 +4,11 @@ class data_customer extends CI_Controller{
     public function index()
     {
       $data['customer'] = $this->rental_model->get_data('customer')->result();
+
+      if($this->session->userdata('id_customer') == 0){
+        redirect('auth/login');
+      }
+
       $this->load->view('templates_admin/header');
       $this->load->view('templates_admin/sidebar');
       $this->load->view('admin/data_customer', $data);
