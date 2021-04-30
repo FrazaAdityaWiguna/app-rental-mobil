@@ -10,7 +10,7 @@
 
     <div class="card">
       <div class="card-body">
-        <table class='table table-hover table-striped table-bordered'>
+        <table class='table table-responsive table-hover table-striped table-bordered'>
           <thead>
             <tr>
               <th>No</th>
@@ -19,7 +19,7 @@
               <th>Merk</th>
               <th>No. Plat</th>
               <th>Status</th>
-              <th>Aksi</th>
+              <th style="width: 200px;">Aksi</th>
             </tr>
           </thead>
           <tbody>

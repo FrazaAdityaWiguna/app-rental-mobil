@@ -3,13 +3,13 @@
 
     <?php echo $this->session->flashdata('pesan') ?>
 
-    <div class="row m-auto">
+    <div class="row">
 
       <?php foreach($mobil as $mb) : ?>
 
-      <div class=" col-lg-6 col-md-6">
+      <div class="col-lg-6 col-md-6 col-sm-12">
         <div class="card mb-5">
-          <img class="card-img-top" src="<?php echo base_url('assets/upload/'). $mb->gambar ?>" alt="Card image cap" />
+          <img class="card-img-top " src="<?php echo base_url('assets/upload/'). $mb->gambar ?>" alt="Mobil Rental" />
           <div class="card-body">
             <h4 class="card-title font-weight-bold"><?php echo $mb->merk ?></h4>
             <h5 class="text-warning text-small text-uppercase">Rp. <?php echo number_format($mb->harga,0,',','.') ?> /

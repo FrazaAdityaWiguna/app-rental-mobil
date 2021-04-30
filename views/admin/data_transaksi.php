@@ -119,16 +119,19 @@
 
                 <?php } else { ?>
                 <div class="row">
-                  <div class="col" style="flex-grow: 0 !important;">
+                  <div class="col" style="flex-grow: 0 !important; width: 100px;">
                     <a class="btn btn-sm btn-primary mr-1"
                       href="<?php echo base_url('admin/transaksi/transaksi_selesai/'.$tr->id_rental) ?>"><i
                         class="fas fa-check"></i></a>
+
+
                   </div>
 
                   <div class="row">
-                    <a class="btn btn-sm btn-danger"
-                      href="<?php echo base_url('admin/transaksi/transaksi_batal/'.$tr->id_rental) ?>"><i
-                        class="fas fa-times"></i></a>
+                    <div class="col p-0">
+                      <a class="btn btn-sm btn-danger mr-1" data-toggle="modal" data-target="#batal_transaksi"
+                        href="#"><i class="fas fa-times"></i></a>
+                    </div>
                   </div>
                 </div>
                 <?php } ?>
@@ -144,3 +147,24 @@
 
   </section>
 </main>
+
+<div class="modal fade" id="batal_transaksi" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Informasi Transaksi</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        Apakah anda ingin membatalkan transaksi?
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-sm btn-danger" data-dismiss="modal">Kembali</button>
+        <a class="btn btn-sm btn-primary"
+          href="<?php echo base_url('admin/transaksi/batal_transaksi/'.$tr->id_rental) ?>">Ya</a>
+      </div>
+    </div>
+  </div>
+</div>
