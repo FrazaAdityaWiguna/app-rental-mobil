@@ -10,9 +10,9 @@ class Register extends CI_Controller{
     $this->load->view('register_form');
     $this->load->view('templates_admin/footer');
     }else {
-      $nama           = $this->input->post('nama');
-      $username       = $this->input->post('username');
-      $alamat         = $this->input->post('alamat');
+      $nama           = htmlspecialchars($this->input->post('nama'));
+      $username       = htmlspecialchars($this->input->post('username'));
+      $alamat         = htmlspecialchars($this->input->post('alamat'));
       $gender         = $this->input->post('gender');
       $no_telepon     = $this->input->post('no_telepon');
       $no_ktp         = $this->input->post('no_ktp');
