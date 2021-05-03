@@ -8,11 +8,11 @@ config->autoload.php : helper - array('url', 'form')
 config->autoload.php : model - array('rental_model')
 
 config->config.php : base_url - 'http://localhost/app_rental_mobil/'
-config->autoload.php : index_page - 'index.php'
+config->config.php : index_page - 'index.php'
 
 config->database.php : hostname - 'localhost'
-config->autoload.php : username - 'root'
-config->autoload.php : database - 'rental_mobil'
+config->database.php : username - 'root'
+config->database.php : database - 'rental_mobil'
 
 Template yang digunakan:
 stisla: https://getstisla.com/
